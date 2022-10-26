@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil Form Pemesanan Barang</title>
+  </head>
+  <body>
+    <header align="center">
+      <nav>
+        <fieldset>
+          <ul style="list-style-type: none">
+            <li>
+              <a href="#">Home |</a>
+            </li>
+            <li>
+              <a href="#">Register |</a>
+            </li>
+            <li>
+              <a href="#">Policy |</a>
+            </li>
+            <li>
+              <a href="#">About |</a>
+            </li>
+          </ul>
+        </fieldset>
+      </nav>
+    </header>
+    <br />
+    <main>
+      <form action="">
+        <section>
+          <img
+            src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2018/10/thicker-diagonal.png"
+            alt="noimage"
+            width="100"
+          />
+        </section>
+        <br />
+        <br />
+        <section>
+          <table>
+            <tr>
+              <td>
+                <label>Title Here : </label>
+              </td>
+              <td>Macbook Air $800</td>
+            </tr>
+            <tr>
+              <td>
+                <label>Description : </label>
+              </td>
+              <td>
+                <div>
+                  <p>Year : 2009</p>
+                  <p>Model :</p>
+                  <p>Condition : Mint</p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label>Total Amount : </label>
+              </td>
+              <td>$800</td>
+            </tr>
+            <tr>
+              <td>
+                <label>Pay to : </label>
+              </td>
+              <td>123-456-789-0</td>
+            </tr>
+            <tr>
+              <td>
+                <label for="payment]">Payment type : </label>
+              </td>
+              <td>
+                <select name="Payment Type" id="payment">
+                  <option value="visa-dc" selected>Visa Debit</option>
+                  <option value="master-card-dc">Master Card Debit</option>
+                  <option value="cc">Card Credit</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="holder">Account Holder : </label>
+              </td>
+              <td>
+                <input type="text" id="holder" placeholder="Name Here" value="John Doe" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="account_num">Account No : </label>
+              </td>
+              <td>
+                <input
+                  name="Account"
+                  id="account_num"
+                  type="text"
+                  placeholder="123-456-789-0"
+                  value="123-456-789-0"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <ul style="list-style-type: none">
+                  <li>
+                    <input type="checkbox" id="send-mb-phone" checked />
+                    <label for="send-mb-phone">Send to Mobile Phone</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="send-email" checked />
+                    <label for="send-email">Send to Email</label>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="mobile-phone">Send to Mobile Phone : </label>
+              </td>
+              <td>
+                <input type="text" id="mobile-phone" value="1234567890, 1234567891" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="email">Send to Email : </label>
+              </td>
+              <td>
+                <input type="email" id="email" value="mfmm2gt3@soton.ac.uk, fya_06@yahoo.com" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <button>Pay using Quid Link</button>
+              </td>
+            </tr>
+          </table>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>
