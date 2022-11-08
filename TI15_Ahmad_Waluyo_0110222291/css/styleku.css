@@ -1,0 +1,69 @@
+body {
+  background-color:lightgoldenrodyellow;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header {
+  background-color: tan;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+img {
+  width: 256px;
+  height: 256px;
+  border-radius: 1rem;
+}
+
+h1 {
+  color: blue;
+}
+
+blockquote {
+  background-color:gold;
+  padding: 1rem 2rem;
+  border: 2px dotted black;
+  line-height: 28px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.gambar {
+  text-align: center;
+}
+
+.isi, #profil, #beternak, .koleksi, .promo {
+  padding: 0 2rem 1rem;
+}
+
+.first-letter {
+  font-size: 42px;
+  line-height: 70px;
+  font-weight: 500;
+  color: blue;
+}
+
+.koleksi {
+  text-align: center;
+}
+
+.promo {
+  color: green;
+}
+
+.promo del {
+  color: red;
+}
+
+.promo h3 strong {
+  color: blue;
+}
+
+.promo h3 #Wa {
+  color: black;
+}
