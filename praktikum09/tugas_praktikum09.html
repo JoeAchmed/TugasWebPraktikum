@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Praktikum Web 9</title>
+  </head>
+  <body>
+    <form action="">
+      <input
+        type="number"
+        name="angka1"
+        id="angka1"
+        value=""
+        onchange="changeNumber(this)"
+      />
+      <br />
+      +
+      <br />
+      <input
+        type="number"
+        name="angka2"
+        id="angka2"
+        value=""
+        onchange="changeNumber(this)"
+      />
+      <br />
+      =
+      <br />
+      <input type="number" name="hasil" id="hasil" disabled />
+    </form>
+
+    <script>
+      let dataAngka = {
+        angka1: 0,
+        angka2: 0
+      };
+
+      function changeNumber(e) {
+        dataAngka[e.name] = +e.value;
+        document.getElementById("hasil").value = dataAngka.angka1 + dataAngka.angka2;
+      }
+    </script>
+  </body>
+</html>
