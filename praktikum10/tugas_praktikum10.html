@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Praktikum Web 10</title>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      .form-validation,
+      #result {
+        width: 460px;
+        background-color: #e3e3e3;
+        padding: 2.5rem;
+        border-radius: 10px;
+      }
+
+      .form-validation > h1 {
+        text-align: center;
+      }
+
+      .form-validation > form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .button {
+        background-color: rgb(13, 13, 233);
+        border: 1px solid rgb(13, 13, 233);
+        padding: 0.75rem;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        opacity: 0.7;
+      }
+
+      #form > div > span {
+        color: red;
+        font-size: 12px;
+      }
+
+      @media screen and (max-width: 746px) {
+        .form-validation,
+        #result {
+          width: 80%;
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-validation">
+      <h1>Form Validasi</h1>
+      <form id="form" onsubmit="validation(); return false">
+        <div>
+          Nama Pelanggan :
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Masukkan name"
+          />
+          <span id="error-name"></span>
+        </div>
+        <div>
+          Email :
+          <input id="email" type="email" placeholder="Masukkan email" />
+          <span id="error-email"></span>
+        </div>
+        <div>
+          Jam Keberangkatan :
+          <input id="attendance" type="time" name="attendance" />
+          <span id="error-attendance"></span>
+        </div>
+        <div>
+          Tujuan Keberangkatan :
+          <select name="destination" id="destination">
+            <option value="">--- Pilih ---</option>
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="jogja">Jogja</option>
+            <option value="surabaya">Surabaya</option>
+          </select>
+          <span id="error-destination"></span>
+        </div>
+        <div>
+          Jumlah Tiket :
+          <input
+            type="number"
+            placeholder="Masukkan jumlah tiket"
+            id="ticket"
+          />
+          <span id="error-ticket"></span>
+        </div>
+        <button type="submit" class="button">Submit</button>
+      </form>
+    </div>
+    <br />
+    <br />
+    <div id="result" hidden></div>
+
+    <script>
+      function validation() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let attendance = document.getElementById("attendance").value;
+        let destination = document.getElementById("destination").value;
+        let ticket = document.getElementById("ticket").value;
+        // error element
+        let error_name = document.getElementById("error-name");
+        let error_email = document.getElementById("error-email");
+        let error_attendance = document.getElementById("error-attendance");
+        let error_destination = document.getElementById("error-destination");
+        let error_ticket = document.getElementById("error-ticket");
+        let result = document.getElementById("result");
+
+        function isValid() {
+          // validasi name
+          if (!name) {
+            error_name.innerHTML = "Nama pelanggan wajib di isi";
+            return false;
+          } else if (name.length > 30) {
+            error_name.innerHTML = "Panjang nama maksimal 30 karakter";
+            return false;
+          }
+
+          // validasi email
+          if (email.length == 0) {
+            error_email.innerHTML = "Email wajib diisi";
+            return false;
+          }
+
+          // validasi jam keberangkatan
+          if (!attendance) {
+            error_attendance.innerHTML = "Jam keberangkatan wajib diisi";
+            return false;
+          }
+
+          // validasi tujuan keberangkatan
+          if (!destination) {
+            error_destination.innerHTML = "Tujuan keberangkatan wajib dipilih";
+            return false;
+          }
+
+          // validasi jumlah tiket
+          if (!ticket) {
+            error_ticket.innerHTML = "Jumlah tiket wajib diisi";
+            return false;
+          } else if (ticket < 0 || ticket > 10) {
+            error_ticket.innerHTML = "Jumlah tiket minimal 0 atau maksimal 10";
+            return false;
+          }
+
+          return true;
+        }
+
+        let dataPengiriman = [];
+        let title = document.createElement("h2");
+
+        result.appendChild(title);
+
+        for (let i = 0; i < 5; i++) {
+          dataPengiriman.push(document.createElement("p"));
+          result.appendChild(dataPengiriman[i]);
+        }
+
+        if (isValid()) {
+          result.style.display = "block";
+          title.style.textAlign = "center";
+          title.innerHTML = "Data Pengiriman";
+          dataPengiriman[0].innerHTML = "Nama Pengirim : " + name;
+          dataPengiriman[1].innerHTML = "Email Pengirim : " + email;
+          dataPengiriman[2].innerHTML = "Jam Keberangkatan : " + attendance + " WIB";
+          dataPengiriman[3].innerHTML = "Tujuan Keberangkatan : " + destination;
+          dataPengiriman[4].innerHTML = "Jumlah Tiket : " + ticket;
+        }
+      }
+
+      document
+        .getElementById("name")
+        .addEventListener("change", function (event) {
+          let error_name = document.getElementById("error-name");
+
+          if (event.target.value) {
+            error_name.innerHTML = "";
+          }
+        });
+
+      document
+        .getElementById("email")
+        .addEventListener("change", function (event) {
+          let error_email = document.getElementById("error-email");
+
+          if (event.target.value) {
+            error_email.innerHTML = "";
+          }
+        });
+
+      document
+        .getElementById("attendance")
+        .addEventListener("change", function (event) {
+          let error_attendance = document.getElementById("error-attendance");
+
+          if (event.target.value) {
+            error_attendance.innerHTML = "";
+          }
+        });
+
+      document
+        .getElementById("destination")
+        .addEventListener("change", function (event) {
+          let error_destination = document.getElementById("error-destination");
+
+          if (event.target.value) {
+            error_destination.innerHTML = "";
+          }
+        });
+
+      document
+        .getElementById("ticket")
+        .addEventListener("change", function (event) {
+          let error_ticket = document.getElementById("error-ticket");
+
+          if (event.target.value) {
+            error_ticket.innerHTML = "";
+          }
+        });
+    </script>
+  </body>
+</html>
